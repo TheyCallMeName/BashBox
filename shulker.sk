@@ -1,0 +1,72 @@
+options:
+  prefix: &f&lBash&8&lBox &8|
+
+on place:
+    If "%event-block%" contain "shulker box":
+        send "{@prefix} &c&l» &6Your Shulker have been Placed"
+        set {mysterygift.%location of event-block%} to uuid of event-player
+ 
+ 
+on break:
+    If "%event-block%" contain " shulker box":
+        if player is op:
+            set {drop} to drops of block with player's tool
+            clear drops
+            give player {drop}
+            send "{@prefix} &c&l» &eYour Shulker is being checked by %player%" to {mysterygift.%location of event-block%} 
+            delete {mysterygift.%location of event-block%}
+            stop
+        if {mysterygift.%location of event-block%} is uuid of event-player:
+            send "{@prefix} &c&l» &6Your Shulker have been removed"
+            set {drop} to drops of block with player's tool
+            clear drops
+            give player {drop}
+            delete {mysterygift.%location of event-block%}
+            stop
+        else:
+            cancel event
+            send "{@prefix} &c&l» &4&lShulker isn't Yours"
+ on place:
+    If "%event-block%" contain "shulker box":
+        if "%region at player%" contains "box":
+            cancel event
+			
+on right click:
+    If "%event-block%" contain " shulker box":
+        if player is op:
+            stop
+        if {mysterygift.%location of event-block%} is uuid of event-player:
+            stop
+        else:
+            cancel event
+            send "{@prefix} &c&l» &4&lShulker isn't yours!"
+ 
+on place of hopper or normal rail or powered rail or detector rail or activator rail: #yep, isn't mine!
+    if "%block above event-block%" contain " shulker box":
+        if player is op:
+            stop
+        if {mysterygift.%location of block above event-block%} is uuid of event-player:
+            stop
+        else:
+            cancel event
+            send "{@prefix} &c&l» &cShulker isn't Yours"
+
+on place:
+ if block below event-location is bedrock:
+  if block at event-location is any shulker box:
+  else:
+   cancel event
+			
+			
+on place:
+    if event-block is horn coral:
+        cancel event
+		
+on place:
+    if event-block is fire coral fan:
+        cancel event
+
+command /setspawn2:
+    permission: op
+    Trigger:
+        set {spawn} to location at player

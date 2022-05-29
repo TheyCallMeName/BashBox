@@ -1,0 +1,5 @@
+command /ad:
+ trigger:
+  send "<Suggest command:/ad bashbox &b» &3&lBoxPvp&b « &d&l» &a&lSeason 3 &d&l« &6&l» &b&lElytra PvP &6&l«> &bClick Here For &3ad"
+  send "<Suggest command:/ad bashbox &b» &3&lBoxPvp&b « &d&l» &a&lJoin Now &d&l« &b&lGIVEAWAY> &bGiveAway &3Ad"
+  send "<Suggest command:/ad bashbox &bBoxpvp &6Keepinv Off &aSeason 3 &dElytra PvP> &bAnother &3Ad"
